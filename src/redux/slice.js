@@ -1,9 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit"
 
+
 export const SortStatusType = {
   ASC: 'asc',
   DESC: 'desc'
 }
+
 
 const dataSlice = createSlice({
   name: 'dataSlice',
@@ -26,15 +28,15 @@ const dataSlice = createSlice({
     startLoading: (state) => {
       state.isLoading = true
     },
+
     finishLoading: (state) => {
       state.isLoading = false
-    }
+    },
   }
 })
 
 
 export const dataSelector = (state) =>  state.dataReducer.data
-
 
 export const sortStatusSelector = (state) => state.dataReducer.sortStatus
 

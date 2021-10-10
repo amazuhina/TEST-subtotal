@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
-import {ButtonStart} from "../buttons/button-start";
-import {useDispatch, useSelector} from "react-redux";
-import {finishLoading, pushData, sortStatusSelector, SortStatusType, startLoading} from "../../redux/slice";
+import {ButtonStart} from "./ui/buttons/button-start";
+import {useSelector} from "react-redux";
+import {sortStatusSelector} from "../redux/slice";
 import {List} from "./list/list";
-import {Loader} from "../loader/loader";
-import {useFetchCards} from "../hooks/fetchCards";
+import {useFetchCards} from "./hooks/fetchCards";
 
 
 const ContainerStl = styled.div`
@@ -28,8 +27,10 @@ export const Container = () => {
 
   const [fetchCards] = useFetchCards()
 
+  const actualSortType = useSelector(sortStatusSelector)
+
   const onStart = () => {
-    fetchCards()
+    fetchCards(actualSortType)
     setShowList(true)
   }
 

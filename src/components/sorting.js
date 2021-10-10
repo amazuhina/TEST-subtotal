@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import {sortList} from "../../../consts";
 import {useDispatch, useSelector} from "react-redux";
-import {setSortStatus, sortIncrease, sortStatusSelector, SortStatusType} from "../../../redux/slice";
-import {useFetchCards} from "../../hooks/fetchCards";
-
+import {setSortStatus, sortStatusSelector, SortStatusType} from "../redux/slice";
+import {useFetchCards} from "./hooks/fetchCards";
 
 
 const SortingStl = styled.div`
@@ -12,7 +10,6 @@ const SortingStl = styled.div`
   display: flex;
   justify-content: flex-end;
 `
-
 
 const SelectStl = styled.select`
   min-width: 250px;
@@ -26,6 +23,9 @@ const SelectStl = styled.select`
   padding: 0 5px;
   cursor: pointer;
 `
+
+
+
 
 export const Sorting = () => {
 
@@ -43,16 +43,10 @@ export const Sorting = () => {
     const payload = {
       sortStatus: value
     }
+
     dispatch(setSortStatus(payload))
-    console.log('Selected')
-    console.log(sortStatus)
 
-    setTimeout(() => {
-      console.log('Selected async')
-      console.log(sortStatus)
-    }, 1000)
-
-    fetchCards()
+    fetchCards(value)
   }
 
   return (

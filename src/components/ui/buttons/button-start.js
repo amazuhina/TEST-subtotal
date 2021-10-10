@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {finishLoading, pushData, SortStatusType, startLoading} from "../../redux/slice";
-import {useDispatch} from "react-redux";
 
 
 const ButtonStartStl = styled.button` 
@@ -24,10 +22,7 @@ const ButtonStartStl = styled.button`
 
 
 
-
 export const ButtonStart = ({text, onClick}) => {
-
-
 
   return (
     <ButtonStartStl onClick={onClick}>

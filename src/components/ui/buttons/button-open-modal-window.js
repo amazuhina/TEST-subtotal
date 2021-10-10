@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-const ButtonModalWindowStl = styled.button` 
-  width: 300px;
+const ButtonOpenModalWindowStl = styled.button` 
+  max-width: 300px;
   padding: 5px 10px;
   border: 2px solid rgba(255, 255, 255, .4);
   background-color: transparent;
@@ -11,6 +11,7 @@ const ButtonModalWindowStl = styled.button`
   font-weight: 700;
   text-transform: uppercase;  
   cursor: pointer;
+  margin-bottom: 15px;
   transition: 0.3s;
   &:hover {
     background-color: rgba(255, 255, 255, .4);
@@ -20,13 +21,12 @@ const ButtonModalWindowStl = styled.button`
 
 
 
-
-export const ButtonModalWindow = ({text, onClick}) => {
+export const ButtonOpenModalWindow = ({text, onClick}) => {
 
   return (
-    <ButtonModalWindowStl onClick={onClick}>
+    <ButtonOpenModalWindowStl onClick={onClick}>
       {text}
-    </ButtonModalWindowStl>
+    </ButtonOpenModalWindowStl>
   )
 }
 

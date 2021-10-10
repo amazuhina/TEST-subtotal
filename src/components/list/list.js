@@ -1,16 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useSelector} from "react-redux";
-import {dataSelector, isLoadingSelector} from "../../../redux/slice";
+import {dataSelector, isLoadingSelector} from "../../redux/slice";
 import {Item} from "./item";
-import {Sorting} from "./sorting";
-import {Loader} from "../../loader/loader";
+import {Sorting} from "../sorting";
+import {Loader} from "../ui/loader";
 
 
 const ListStl = styled.div` 
   background-color: transparent;
 `
-
 
 
 
@@ -43,8 +42,6 @@ export const List = () => {
             </>
           )
       }
-
-
     </ListStl>
   )
 }

@@ -1,14 +1,13 @@
-import {finishLoading, pushData, sortStatusSelector, SortStatusType, startLoading} from "../../redux/slice";
-import {useDispatch, useSelector} from "react-redux";
+import {finishLoading, pushData, SortStatusType, startLoading} from "../../redux/slice";
+import {useDispatch} from "react-redux";
 
 export const useFetchCards = () => {
   const dispatch = useDispatch()
-  const actualSortType = useSelector(sortStatusSelector)
 
-  const fetchCards = () => {
+  const fetchCards = (actualSortType) => {
+
     dispatch(startLoading())
 
-    console.log(actualSortType)
 
     const filter = {
       "query": {
@@ -24,9 +23,11 @@ export const useFetchCards = () => {
             ? -1
             : 1
         },
-        limit: 10
+        limit: 100
       }
     }
+
+
 
     fetch('https://api.spacexdata.com/v4/launches/query', {
       method: 'POST',
@@ -35,7 +36,9 @@ export const useFetchCards = () => {
       },
       body: JSON.stringify(filter)
     })
+
       .then(res => res.json())
+
       .then(res => {
         const payload = {
           data: res.docs.map(i => ({
@@ -51,13 +54,11 @@ export const useFetchCards = () => {
         }
         dispatch(pushData(payload))
         dispatch(finishLoading())
-
       })
 
       .catch(errorMessage => {
         console.log(errorMessage.error)
       })
   }
-
   return [fetchCards]
 }

@@ -4,9 +4,7 @@ import {Gallery} from "./gallery/gallery";
 import {ButtonCloseModalWindow} from "./buttons/button-close-modal-window";
 
 
-
 const ModalWindowStl = styled.div``
-
 
 const OverlayStl = styled.div`
   position: fixed;
@@ -23,23 +21,23 @@ const FormModalWindowStl = styled.div`
   left: 20%;
   z-index: 100;
   width: 50%;
-  height: 80vh;
+  max-height: 90vh;
   background: white;
   margin: 0 auto;
   padding: 1em;
 `
 
 
-export const ModalWindow = ({onClose}) => {
+
+export const ModalWindow = ({onClose, images}) => {
 
   return (
     <ModalWindowStl>
-      <OverlayStl>
-        <FormModalWindowStl>
-          <ButtonCloseModalWindow onClick={onClose}/>
-          <Gallery/>
-        </FormModalWindowStl>
-      </OverlayStl>
+      <OverlayStl onClick={onClose}/>
+      <FormModalWindowStl>
+        <ButtonCloseModalWindow onClick={onClose}/>
+        <Gallery images={images}/>
+      </FormModalWindowStl>
     </ModalWindowStl>
   )
 }
