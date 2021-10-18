@@ -60,6 +60,9 @@ export const Item = ({name, date, info, url, success, rocketId}) => {
     setIsShowModalWindow(false)
   }
 
+
+
+
   return (
     <ItemStl>
       <TextBlockStl>
@@ -67,7 +70,7 @@ export const Item = ({name, date, info, url, success, rocketId}) => {
           Название миссии: {name}
         </RowStl>
         <RowStl>
-          Дата запуска: {date}
+          Дата запуска: {new Date(date).toLocaleDateString()}
         </RowStl>
         <RowStl>
           Информация о запуске: {info}

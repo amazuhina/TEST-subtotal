@@ -30,6 +30,7 @@ export const List = () => {
               {
                 data.map(i =>
                   <Item
+                    key={i.id}
                     name={i.name}
                     date={i.date}
                     info={i.info}
